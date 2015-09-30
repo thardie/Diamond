@@ -163,6 +163,8 @@ class CPUCollector(diamond.collector.Collector):
                             long(stats[s]),
                             self.MAX_VALUES[s])
 
+            metrics['total.ncores'] = ncpus
+
             # Check for a bug in xen where the idle time is doubled for guest
             # See https://bugzilla.redhat.com/show_bug.cgi?id=624756
             if self.config['xenfix'] is None or self.config['xenfix'] is True:
